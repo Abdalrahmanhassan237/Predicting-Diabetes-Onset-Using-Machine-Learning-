@@ -134,6 +134,32 @@ The code defines a function called `model_cal` that evaluates the performance of
        - The harmonic mean of precision and recall using the `f1_score` function.
 5. Create a Confusion Matrix Heatmap:
    - A heatmap of the confusion matrix is generated using the `confusion_matrix` function from the `sklearn` library.
+```python
+def model_cal(model):
+    # Print model information
+    print("Evaluating Model:", model)
+
+    # Train the model on the training data
+    model.fit(x_train, y_train)
+
+    # Make predictions on the testing data
+    prediction = model.predict(x_test)
+
+    # Evaluate model performance using various metrics
+
+    # Accuracy: Proportion of correct predictions
+    accuracy = accuracy_score(prediction, y_test)
+    print("Accuracy Score:", accuracy)
+
+    # Recall: Proportion of true positives correctly identified
+    recall = recall_score(prediction, y_test)
+    print("Recall Score:", recall)
+
+    # F1 Score: Harmonic mean of precision and recall
+    f1 = f1_score(prediction, y_test)
+    print("F1 Score:", f1)
+    sns.heatmap(confusion_matrix(prediction, y_test), annot=True ,fmt = '0.2f',linewidth = .9)
+```
 
 
     
