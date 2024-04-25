@@ -3,6 +3,7 @@
 ![0_7p7zUmwZ02iokYmP](https://github.com/Abdalrahmanhassan237/Predicting-Diabetes-Onset-Using-Machine-Learning-/assets/158060043/06e988d0-de81-4a21-bb82-27d4738d8d91)
 
 
+
 ## Explanation for Learners
 
 ### Importing Libraries
@@ -113,42 +114,32 @@ The provided code splits the data into training and testing sets, which is recom
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42) 
 ```
 
-###  function evaluates the performance of a machine learning model
+## Function ` model_cal ` Description
+The code defines a function called `model_cal` that evaluates the performance of a machine learning model. The function takes a single argument, `model`, which is expected to be a trained machine learning model.
+
+### Steps Performed by the Function
+1. Print Model Information:
+   - The function prints the name or description of the model being evaluated.
+2. Train the Model:
+   - The model is trained on the training data (assuming that `x_train` and `y_train` are defined elsewhere).
+3. Make Predictions:
+   - Predictions are made on the testing data (assuming that `x_test` is defined elsewhere).
+4. Evaluate Model Performance:
+   - The following metrics are computed:
+     - Accuracy:
+       - The proportion of correct predictions using the `accuracy_score` function.
+     - Recall:
+       - The proportion of true positives correctly identified using the `recall_score` function.
+     - F1 Score:
+       - The harmonic mean of precision and recall using the `f1_score` function.
+5. Create a Confusion Matrix Heatmap:
+   - A heatmap of the confusion matrix is generated using the `confusion_matrix` function from the `sklearn` library.
+
+
+    
 
 
 
-The `model_cal` function evaluates the performance of a machine learning model. Here's a step-by-step explanation of the code:
-
-
-```python
-def model_cal(model):
-    # Print model information
-    print("Evaluating Model:", model)
-
-    # Train the model on the training data
-    model.fit(x_train, y_train)
-
-    # Make predictions on the testing data
-    prediction = model.predict(x_test)
-
-    # Evaluate model performance using various metrics
-
-    # Accuracy: Proportion of correct predictions
-    accuracy = accuracy_score(prediction, y_test)
-    print("Accuracy Score:", accuracy)
-
-    # Recall: Proportion of true positives correctly identified
-    recall = recall_score(prediction, y_test)
-    print("Recall Score:", recall)
-
-    # F1 Score: Harmonic mean of precision and recall
-    f1 = f1_score(prediction, y_test)
-    print("F1 Score:", f1)
-
-    # Create a heatmap of the confusion matrix
-    sns.heatmap(confusion_matrix(prediction, y_test), annot=True, fmt='0.2f', linewidth=0.9)
-    print('\n','\n')
-```
     
 #### Thank you for reading, and I hope this article was helpful 😊.
 
